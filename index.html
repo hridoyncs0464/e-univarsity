@@ -331,6 +331,71 @@
   }
 
   :focus-visible{ outline: 2px solid var(--gold-deep); outline-offset: 2px; }
+
+.hero-green{
+  background: #E8F5E9;
+  border-bottom: 1px solid #C8E6C9;
+  padding: 90px 0 70px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-green .eyebrow{
+  color: #2E7D32;
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.hero-green h1{
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 600;
+  max-width: 15ch;
+  color: #1B2430;
+}
+
+.hero-green p{
+  margin-top: 22px;
+  font-size: 17px;
+  color: #3F4A3F;
+  max-width: 46ch;
+}
+
+.hero-green-actions{
+  margin-top: 34px;
+  display: flex;
+  gap: 16px;
+}
+
+.hero-green .btn-primary{
+  background: #2E7D32;
+  border: 1px solid #2E7D32;
+  color: #fff;
+}
+
+.hero-green .btn-primary:hover{ background: #256428; }
+
+.hero-green .btn-ghost{
+  border: 1px solid #A5D6A7;
+  background: transparent;
+  color: #2E7D32;
+}
+
+.hero-green .btn-ghost:hover{ border-color: #2E7D32; }
+
+.hero-green-figure{
+  border: 1px solid #C8E6C9;
+  background: #FFFFFF;
+  padding: 34px;
+  border-radius: 4px;
+}
+
+@media (max-width: 860px){
+  .hero-green{ grid-template-columns: 1fr; padding-top: 50px; }
+  .hero-green h1{ font-size: 38px; }
+}
 .category-blue{
   background: #0D1B3E;
   padding: 80px 0;
@@ -406,6 +471,24 @@
     <a href="#apply" class="btn btn-primary">Apply now</a>
   </div>
 </header>
+<section class="hero-green">
+  <div class="wrap" style="display:contents;">
+    <div>
+      <div class="eyebrow">Fully online, fully accredited</div>
+      <h1>Earn your degree without leaving your life behind.</h1>
+      <p>Meridian University Online brings the same faculty, coursework, and credentials as our campus programs to a schedule that fits around your job, your family, and your time zone.</p>
+      <div class="hero-green-actions">
+        <a href="#apply" class="btn btn-primary">Start your application</a>
+        <a href="#programs" class="btn btn-ghost">Browse programs</a>
+      </div>
+    </div>
+    <div class="hero-green-figure">
+      <div class="stat-row"><span class="stat-num">42</span><span class="stat-label">degree & certificate programs</span></div>
+      <div class="stat-row"><span class="stat-num">6</span><span class="stat-label">start dates each year</span></div>
+      <div class="stat-row"><span class="stat-num">94%</span><span class="stat-label">of graduates employed within 6 months</span></div>
+    </div>
+  </div>
+</section>
 
 <section class="hero">
   <div class="wrap" style="display:contents;">
