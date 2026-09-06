@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian University Online</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink: #1B2430;
+    --paper: #FAF7F0;
+    --panel: #F0EBDD;
+    --gold: #A9762F;
+    --gold-deep: #7C5623;
+    --line: #D9D1BC;
+    --muted: #5B6472;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, .brand{
+    font-family: 'Source Serif 4', serif;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  .wrap{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Header */
+  header{
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 10;
+  }
+
+  .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0;
+  }
+
+  .brand{
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .brand span{ color: var(--gold-deep); }
+
+  nav ul{
+    list-style: none;
+    display: flex;
+    gap: 36px;
+  }
+
+  nav ul a{
+    font-size: 15px;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  nav ul a:hover, nav ul a:focus-visible{
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+
+  .btn{
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn-primary{
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+  }
+
+  .btn-primary:hover{ background: #0F151D; }
+
+  .btn-ghost{
+    border: 1px solid var(--line);
+    background: transparent;
+  }
+
+  .btn-ghost:hover{ border-color: var(--ink); }
+
+  /* Hero */
+  .hero{
+    padding: 90px 0 70px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero .eyebrow{
+    color: var(--gold-deep);
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+
+  .hero h1{
+    font-size: 52px;
+    line-height: 1.1;
+    font-weight: 600;
+    max-width: 15ch;
+  }
+
+  .hero p{
+    margin-top: 22px;
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 46ch;
+  }
+
+  .hero-actions{
+    margin-top: 34px;
+    display: flex;
+    gap: 16px;
+  }
+
+  .hero-figure{
+    border: 1px solid var(--line);
+    background: var(--panel);
+    padding: 34px;
+    border-radius: 4px;
+  }
+
+  .stat-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stat-row:last-child{ border-bottom: none; }
+
+  .stat-num{
+    font-family: 'Source Serif 4', serif;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .stat-label{
+    font-size: 14px;
+    color: var(--muted);
+    align-self: center;
+  }
+
+  /* Section headings */
+  section{ padding: 80px 0; }
+
+  .section-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 44px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+  }
+
+  .section-head h2{
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .section-head p{
+    color: var(--muted);
+    max-width: 40ch;
+    font-size: 15px;
+  }
+
+  /* Programs */
+  .programs{ background: var(--panel); border-bottom: 1px solid var(--line); }
+
+  .program-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .program-card{
+    background: var(--paper);
+    padding: 32px;
+  }
+
+  .program-card .tag{
+    font-size: 13px;
+    color: var(--gold-deep);
+    margin-bottom: 14px;
+  }
+
+  .program-card h3{
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .program-card p{
+    color: var(--muted);
+    font-size: 14.5px;
+    margin-bottom: 18px;
+  }
+
+  .program-card .meta{
+    font-size: 13px;
+    color: var(--ink);
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* How it works */
+  .steps{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .step{
+    border-top: 3px solid var(--gold);
+    padding-top: 18px;
+  }
+
+  .step h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .step p{
+    color: var(--muted);
+    font-size: 14.5px;
+  }
+
+  /* Testimonial */
+  .quote-block{
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .quote-block .wrap{
+    padding: 70px 32px;
+  }
+
+  .quote-block blockquote{
+    font-family: 'Source Serif 4', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 22ch;
+  }
+
+  .quote-block cite{
+    display: block;
+    margin-top: 22px;
+    font-style: normal;
+    font-size: 14px;
+    color: #B9B2A0;
+  }
+
+  /* CTA */
+  .cta{
+    text-align: center;
+    padding: 90px 0;
+  }
+
+  .cta h2{
+    font-size: 34px;
+    font-weight: 600;
+    max-width: 20ch;
+    margin: 0 auto 20px;
+  }
+
+  .cta p{
+    color: var(--muted);
+    max-width: 42ch;
+    margin: 0 auto 34px;
+  }
+
+  /* Footer */
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 40px 0;
+  }
+
+  .footer-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .footer-row a{ margin-left: 24px; color: var(--muted); }
+  .footer-row a:hover{ color: var(--ink); }
+
+  @media (max-width: 860px){
+    .hero{ grid-template-columns: 1fr; padding-top: 50px; }
+    .hero h1{ font-size: 38px; }
+    nav ul{ display: none; }
+    .program-grid{ grid-template-columns: 1fr; }
+    .steps{ grid-template-columns: 1fr 1fr; }
+    .footer-row{ flex-direction: column; gap: 14px; text-align: center; }
+    .footer-row a{ margin: 0 10px; }
+  }
+
+  :focus-visible{ outline: 2px solid var(--gold-deep); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Meridian <span>University</span></div>
+    <nav>
+      <ul>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#apply">Apply</a></li>
+      </ul>
+    </nav>
+    <a href="#apply" class="btn btn-primary">Apply now</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap" style="display:contents;">
+    <div>
+      <div class="eyebrow">Fully online, fully accredited</div>
+      <h1>Earn your degree without leaving your life behind.</h1>
+      <p>Meridian University Online brings the same faculty, coursework, and credentials as our campus programs to a schedule that fits around your job, your family, and your time zone.</p>
+      <div class="hero-actions">
+        <a href="#apply" class="btn btn-primary">Start your application</a>
+        <a href="#programs" class="btn btn-ghost">Browse programs</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <div class="stat-row"><span class="stat-num">42</span><span class="stat-label">degree & certificate programs</span></div>
+      <div class="stat-row"><span class="stat-num">6</span><span class="stat-label">start dates each year</span></div>
+      <div class="stat-row"><span class="stat-num">94%</span><span class="stat-label">of graduates employed within 6 months</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Programs</h2>
+      <p>A sample of degrees offered entirely online, taught live and on-demand by the same faculty who teach on campus.</p>
+    </div>
+    <div class="program-grid">
+      <div class="program-card">
+        <div class="tag">Bachelor's</div>
+        <h3>Computer Science</h3>
+        <p>Core theory, software systems, and a capstone project built with an industry mentor.</p>
+        <div class="meta"><span>4 years</span><span>120 credits</span></div>
+      </div>
+      <div class="program-card">
+        <div class="tag">Master's</div>
+        <h3>Data & Analytics</h3>
+        <p>Statistics, machine learning, and applied projects using real organizational datasets.</p>
+        <div class="meta"><span>18 months</span><span>36 credits</span></div>
+      </div>
+      <div class="program-card">
+        <div class="tag">Certificate</div>
+        <h3>Business Foundations</h3>
+        <p>Finance, operations, and management essentials for early-career professionals.</p>
+        <div class="meta"><span>6 months</span><span>12 credits</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How it works</h2>
+      <p>From application to graduation, every step is designed around a working schedule.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Apply</h3>
+        <p>Submit transcripts and a short statement — no entrance exam required.</p>
+      </div>
+      <div class="step">
+        <h3>Enroll</h3>
+        <p>Meet with an advisor to build a course plan around your schedule.</p>
+      </div>
+      <div class="step">
+        <h3>Study</h3>
+        <p>Attend live seminars or watch recordings, on any device, at any hour.</p>
+      </div>
+      <div class="step">
+        <h3>Graduate</h3>
+        <p>Walk at commencement or receive your diploma by mail — your choice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-block" id="stories">
+  <div class="wrap">
+    <blockquote>
+      "I finished my degree during night shifts and nap times. Nobody in my seminar knew the difference."
+      <cite>— Priya N., Class of 2025, Data & Analytics</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="cta" id="apply">
+  <div class="wrap">
+    <h2>Applications for spring term close January 10.</h2>
+    <p>Start your application today — it takes about twenty minutes, and an advisor will follow up within two business days.</p>
+    <a href="#" class="btn btn-primary">Begin application</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>&copy; 2026 Meridian University Online</span>
+    <div>
+      <a href="#">Accreditation</a>
+      <a href="#">Financial aid</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
