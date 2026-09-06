@@ -89,7 +89,7 @@
     font-weight: 500;
     cursor: pointer;
   }
-
+  
   .btn-primary{
     background: var(--ink);
     color: var(--paper);
@@ -453,6 +453,59 @@
 @media (max-width: 860px){
   .category-grid{ grid-template-columns: 1fr 1fr; }
 }
+.apply-steps-red{
+  background: #4A0E0E;
+  padding: 80px 0;
+  border-bottom: 1px solid #6B1A1A;
+}
+
+.apply-steps-red .section-head h2{
+  color: #FFFFFF;
+}
+
+.apply-steps-red .section-head p{
+  color: #E0B4B4;
+}
+
+.apply-steps-red .section-head{
+  border-bottom: 1px solid #6B1A1A;
+}
+
+.apply-steps-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.apply-step{
+  border-top: 3px solid #E07A5F;
+  padding-top: 18px;
+}
+
+.apply-step .num{
+  color: #E07A5F;
+  font-family: 'Source Serif 4', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.apply-step h3{
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.apply-step p{
+  color: #E0B4B4;
+  font-size: 14.5px;
+}
+
+@media (max-width: 860px){
+  .apply-steps-grid{ grid-template-columns: 1fr 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -569,7 +622,36 @@
     </div>
   </div>
 </section>
-
+<section class="apply-steps-red">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Steps to apply</h2>
+      <p>Four simple steps stand between you and your first term.</p>
+    </div>
+    <div class="apply-steps-grid">
+      <div class="apply-step">
+        <div class="num">01</div>
+        <h3>Submit transcripts</h3>
+        <p>Upload your academic records — no entrance exam required.</p>
+      </div>
+      <div class="apply-step">
+        <div class="num">02</div>
+        <h3>Write your statement</h3>
+        <p>A short statement telling us about your goals.</p>
+      </div>
+      <div class="apply-step">
+        <div class="num">03</div>
+        <h3>Talk to an advisor</h3>
+        <p>Build a course plan that fits your schedule.</p>
+      </div>
+      <div class="apply-step">
+        <div class="num">04</div>
+        <h3>Get your decision</h3>
+        <p>Hear back within two weeks of a complete application.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="how">
   <div class="wrap">
     <div class="section-head">
